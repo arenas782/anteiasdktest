@@ -75,19 +75,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+
+
     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
     api "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-
     api "androidx.camera:camera-lifecycle:${camerax_version}"
-
     api "androidx.camera:camera-view:1.0.0-alpha24"
     api "androidx.camera:camera-camera2:$camerax_version"
-
-
-
-
-
 
     //retrofit
     api "com.squareup.okhttp3:okhttp:4.9.0"
@@ -99,6 +94,9 @@ dependencies {
 
     //lottie
     api "com.airbnb.android:lottie:$lottieVersion"
+    implementation (project(":app")) {
+        transitive = true
+    }
 
 
 }
