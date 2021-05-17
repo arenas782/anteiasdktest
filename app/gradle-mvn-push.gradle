@@ -1,0 +1,60 @@
+apply plugin: 'maven-publish'
+
+
+def getOutputDir() {
+    if (isReleaseBuild()) {
+        return "${project.buildDir}/releases"
+    } else {
+        return "${project.buildDir}/snapshots"
+    }
+}
+
+def getArtifactFilePath() {
+    if (isReleaseBuild()) {
+        return "$buildDir/outputs/aar/${Config.artifactId}-release.aar"
+    } else {
+        return "$buildDir/outputs/aar/${Config.artifactId}-debug.aar"
+    }
+}
+
+def getPublicationName() {
+    if (isReleaseBuild()) {
+        return "release"
+    } else {
+        return "debug"
+    }
+}
+
+publishing {
+    publications {
+        "${getPublicationName()}" (MavenPublication) {
+            groupId Config.groupId // com.company.project
+            artifactId Config.artifactId // my-component-library
+            version Config.versionName // 1.0.0-SNAPSHOT
+            artifact getArtifactFilePath()
+
+            // To include project dependencies
+            pom.withXml {
+                def dependencies = asNode().appendNode('dependencies')
+                configurations.getByName("${getPublicationName()}CompileClasspath").getResolvedConfiguration().getFirstLevelModuleDependencies().each {
+                    def dependency = dependencies.appendNode('dependency')
+                    dependency.appendNode('groupId', it.moduleGroup)
+                    dependency.appendNode('artifactId', it.moduleName)
+                    dependency.appendNode('version', it.moduleVersion)
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url "https://gitlab.com/api/v4/projects/projectId/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                name = "Private-Token"
+                value = Config.gitLabAccessToken
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
+}
