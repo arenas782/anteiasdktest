@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="buttons_padding">8dp</dimen>
+    <dimen name="buttons_padding">30dp</dimen>
     <dimen name="outter_layout_padding">16dp</dimen>
+    <dimen name="buttons_height">40dp</dimen>
+    <dimen name="inner_layout_margin">40dp</dimen>
+
 
 </resources>

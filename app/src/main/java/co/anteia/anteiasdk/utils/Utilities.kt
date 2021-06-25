@@ -1,9 +1,9 @@
 package co.anteia.anteiasdk.utils
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Bitmap
 import android.util.Base64
-import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import java.io.ByteArrayOutputStream
 
@@ -24,5 +24,13 @@ object Utilities {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
         val imageBytes: ByteArray = byteArrayOutputStream.toByteArray()
         return  Base64.encodeToString(imageBytes, Base64.NO_WRAP)
+    }
+
+    @JvmStatic
+    fun closeActivity(activity: Activity, msg : String){
+        val intent = Intent()
+        intent.putExtra("response", msg)
+        activity.setResult(Activity.RESULT_CANCELED,intent)
+        activity.finish()
     }
 }

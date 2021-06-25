@@ -8,6 +8,8 @@ import co.anteia.anteiasdk.data.dto.*
 class ApiHelper(private val apiService: ApiService) {
 
     suspend fun initialRegistration(body : InitialRegistrationRequest) = apiService.initialRegistration(body)
+    suspend fun refreshClientToken(body : RefreshClientTokenRequest,credentials : String) = apiService.refreshClientToken(body,"Basic $credentials")
+
     suspend fun addInitialInformation(body : AddInitialInfoRequest, token :String) = apiService.addInitialInformation(body,"Bearer $token")
     suspend fun matiInit( token :String) = apiService.matiInit("Bearer $token")
     suspend fun sendPhotoFront( body:SendPhotoRequest,token :String) = apiService.sendPhotoFront(body,"Bearer $token")

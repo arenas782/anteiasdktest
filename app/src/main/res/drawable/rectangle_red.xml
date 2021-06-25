@@ -4,8 +4,6 @@
     android:shape="rectangle">
     <stroke
         android:width="2dp"
-        android:color="@color/red"
-        android:dashGap="8dp"
-        android:dashWidth="8dp" />
-    <corners android:radius="8dp" />
+        android:color="@color/red" />
+    <corners android:radius="30dp" />
 </shape>

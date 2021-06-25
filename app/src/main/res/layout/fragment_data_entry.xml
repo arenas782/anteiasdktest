@@ -10,127 +10,165 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background"
     android:padding="@dimen/outter_layout_padding"
     android:layout_height="match_parent"
-    tools:context=".ui.DataEntryFragment">
-
-    <TextView
-        android:id="@+id/input_data_message_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:textSize="16sp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/complete_fields_message" />
-
-    <LinearLayout
-        android:id="@+id/input_data_linear_layout"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/input_data_message_tv"
+    tools:context=".ui.dataentry.DataEntryFragment">
+    <ScrollView
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:paddingEnd="40dp"
-        android:paddingStart="40dp"
-        android:gravity="center_horizontal"
-        android:layout_height="wrap_content">
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
+        android:layout_height="fill_parent"
+        android:isScrollContainer="false"
+        android:fillViewport="true">
+        <RelativeLayout
             android:layout_width="match_parent"
-            app:errorEnabled="true"
-            app:error="@{viewModel.errorlname}"
-            app:boxBackgroundColor="@color/white"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
             android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
+                android:id="@+id/input_data_message_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/complete_fields_message" />
+
+            <LinearLayout
+                android:id="@+id/input_data_linear_layout"
+                android:layout_marginTop="40dp"
+                android:layout_below="@id/input_data_message_tv"
                 android:layout_width="match_parent"
-                android:text="@={viewModel.lastname}"
-                android:hint="@string/lastname"
-                android:inputType="textPersonName"
-                android:layout_height="55dp"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            app:errorEnabled="true"
-            app:error="@{viewModel.errorDni}"
-            app:boxBackgroundColor="@color/white"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:text="@={viewModel.dni}"
-                android:hint="@string/dni"
-                android:inputType="number"
-                android:layout_height="55dp"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+                android:orientation="vertical"
+                android:paddingEnd="40dp"
+                android:paddingStart="40dp"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content">
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            app:errorEnabled="true"
-            app:error="@{viewModel.errorEmail}"
-            app:boxBackgroundColor="@color/white"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lastname"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:errorEnabled="true"
+                    app:error="@{viewModel.errorlname}"
+                    app:boxBackgroundColor="@null"
+                    style="@style/OutlinedRoundedBox"
 
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:text="@={viewModel.email}"
-                android:hint="@string/email"
-                android:importantForAutofill="no"
-                android:inputType="textEmailAddress"
-                android:layout_height="55dp"/>
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:text="@={viewModel.lastname}"
+                        android:textColor="@color/white"
+                        android:inputType="textPersonName"
+                        android:layout_height="55dp"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            app:errorEnabled="true"
-            app:error="@{viewModel.errorPhoneNumber}"
-            app:boxBackgroundColor="@color/white"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:text="@={viewModel.phone}"
-                android:hint="@string/phone"
-                android:inputType="phone"
-                android:layout_height="55dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dni"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:errorEnabled="true"
+                    app:error="@{viewModel.errorDni}"
+                    app:boxBackgroundColor="@null"
+                    style="@style/OutlinedRoundedBox"
+                    android:textColorHint="@color/white"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:text="@={viewModel.dni}"
+                        android:textColor="@color/white"
+                        android:inputType="number"
+                        android:layout_height="55dp"/>
 
-        </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:errorEnabled="true"
+                    app:error="@{viewModel.errorEmail}"
+                    app:boxBackgroundColor="@null"
+                    style="@style/OutlinedRoundedBox"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:text="@={viewModel.email}"
+                        android:importantForAutofill="no"
+                        android:textColor="@color/white"
+                        android:inputType="textEmailAddress"
+                        android:layout_height="55dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    app:errorEnabled="true"
+                    app:error="@{viewModel.errorPhoneNumber}"
+                    app:boxBackgroundColor="@null"
+                    android:textColorHint="@color/white"
+                    style="@style/OutlinedRoundedBox"
+                    android:layout_marginBottom="60dp"
+                    android:layout_height="wrap_content">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:text="@={viewModel.phone}"
+                        android:textColor="@color/white"
+                        android:inputType="phone"
+                        android:layout_height="55dp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:visibility="invisible"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_centerInParent="true"
+                app:lottie_rawRes="@raw/loading_spinner"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"/>
+            <com.google.android.material.button.MaterialButton
+                app:backgroundTint="@null"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/next"
+                android:textColor="@color/button_text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/buttons_height"
+                android:paddingLeft="@dimen/buttons_padding"
+                android:paddingRight="@dimen/buttons_padding"
+                android:id="@+id/next_button"
+                android:enabled="@{viewModel.valid}"
+                android:background="@drawable/button_background" />
+
+        </RelativeLayout>
+    </ScrollView>
 
 
 
-    </LinearLayout>
-    <Button
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/next"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingEnd="@dimen/buttons_padding"
-        android:paddingStart="@dimen/buttons_padding"
-        android:id="@+id/next_button"
-        android:enabled="@{viewModel.valid}"
-        android:background="@drawable/button_background"
-        />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
-        android:visibility="invisible"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_centerInParent="true"
-        app:lottie_rawRes="@raw/loading_spinner"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"/>
 </RelativeLayout>
 </layout>

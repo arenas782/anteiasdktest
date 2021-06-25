@@ -2,9 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
-
         <variable
             name="viewModel"
             type="co.anteia.anteiasdk.viewModel.ModifyPhoneViewModel" />
@@ -13,45 +11,52 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@drawable/background"
         android:padding="@dimen/outter_layout_padding"
-        tools:context=".ui.ModifyPhoneFragment">
+        tools:context=".ui.confirmphone.ModifyPhoneFragment">
 
         <TextView
-
             android:id="@+id/modify_email_header_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="@string/modify_email_header"
-            android:textSize="18sp" />
+            android:layout_above="@id/modify_phone_layout"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
+            android:text="@string/enter_your_phone"
+            android:textSize="22sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            app:boxBackgroundColor="@color/white"
+            app:boxBackgroundColor="@null"
+            app:hintTextColor="@color/white"
+            android:id="@+id/modify_phone_layout"
+            android:textColorHint="@color/white"
+            style="@style/OutlinedRoundedBox"
             app:error="@{viewModel.errorPhone}"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:hint="@string/phone"
                 android:inputType="phone"
                 android:text="@={viewModel.phone}" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/buttons_height"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:paddingEnd="@dimen/buttons_padding"
-            android:paddingStart="@dimen/buttons_padding"
+            android:paddingLeft="@dimen/buttons_padding"
+            android:paddingRight="@dimen/buttons_padding"
+            app:backgroundTint="@null"
             android:background="@drawable/button_background"
             android:enabled="@{viewModel.valid}"
             android:text="@string/next"
@@ -67,7 +72,6 @@
             app:lottie_rawRes="@raw/loading_spinner"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"/>
-
 
     </RelativeLayout>
 </layout>

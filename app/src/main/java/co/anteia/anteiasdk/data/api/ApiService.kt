@@ -14,6 +14,14 @@ interface ApiService {
     ): InitialRegistrationResponse
 
     @Headers("Content-Type: application/json;charset=UTF-8")
+    @POST("auth/refreshClientToken/")
+    suspend fun refreshClientToken(
+        @Body body : RefreshClientTokenRequest,
+        @Header("Authorization") credentials: String
+
+    ):RefreshClientTokenResponse
+
+    @Headers("Content-Type: application/json;charset=UTF-8")
     @POST("registerFlow/addInitialInformation/")
     suspend fun addInitialInformation(
         @Body initialInfoRequest: AddInitialInfoRequest,

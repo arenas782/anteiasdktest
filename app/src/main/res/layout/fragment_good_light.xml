@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:padding="@dimen/outter_layout_padding"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".ui.aidetection.IntroFragment">
+
+        <com.google.android.material.button.MaterialButton
+            app:backgroundTint="@null"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/start"
+            android:textColor="@color/button_text_color"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/buttons_height"
+            android:paddingLeft="@dimen/buttons_padding"
+            android:paddingRight="@dimen/buttons_padding"
+            android:id="@+id/next_button"
+            android:background="@drawable/button_background" />
+        <TextView
+            android:layout_above="@id/good_light_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/its_very_simple"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:layout_marginBottom="60dp"/>
+
+        <LinearLayout
+            android:id="@+id/good_light_layout"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/inner_layout_margin"
+            android:layout_marginStart="@dimen/inner_layout_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/intro_message_tv"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/good_light"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/carbon_light"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/inner_layout_margin"
+            android:layout_below="@id/good_light_layout"
+            android:layout_marginEnd="@dimen/inner_layout_margin"
+            android:layout_marginStart="@dimen/inner_layout_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/have_your_id_card_at_hand"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/id_card"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</layout>

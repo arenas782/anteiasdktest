@@ -7,19 +7,19 @@
 
 <RelativeLayout
     android:layout_width="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
 
     android:padding="16dp"
     tools:context=".AnteiaSDKMainActivity">
     <ImageView
 
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/ualet_icon" />
+        android:src="@drawable/anteia_logo" />
 
     <LinearLayout
         android:id="@+id/terms_layout"
@@ -37,9 +37,11 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                app:tint="@color/white"
                 android:src="@drawable/baseline_person_black_48" />
 
             <TextView
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/identity" />
@@ -54,9 +56,12 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                app:tint="@color/white"
+
                 android:src="@drawable/baseline_fingerprint_black_48" />
 
             <TextView
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fingerprint" />
@@ -69,11 +74,14 @@
             android:orientation="horizontal">
 
             <ImageView
+                app:tint="@color/white"
+
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_camera_black_48" />
 
             <TextView
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/camera" />
@@ -86,11 +94,14 @@
             android:orientation="horizontal">
 
             <ImageView
+                app:tint="@color/white"
+
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_location_on_black_48" />
 
             <TextView
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/location" />
@@ -103,11 +114,13 @@
             android:orientation="horizontal">
 
             <ImageView
+                app:tint="@color/white"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/baseline_mic_black_48" />
 
             <TextView
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/mic" />
@@ -121,11 +134,12 @@
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/checkBox"
+                android:buttonTint="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/tos"
-                android:textColor="@color/gray" />
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 
@@ -139,6 +153,7 @@
         android:layout_marginTop="40dp"
         android:layout_height="wrap_content">
         <Button
+
             android:layout_width="wrap_content"
             android:text="@string/reject"
             android:id="@+id/rejectButton"
@@ -148,8 +163,9 @@
             android:layout_height="wrap_content"/>
         <Button
             android:layout_width="wrap_content"
-            android:background="@drawable/button_background"
+            android:background="@drawable/rounded_button"
             android:id="@+id/acceptButton"
+            app:backgroundTint="@null"
             android:layout_alignParentEnd="true"
             android:paddingEnd="@dimen/buttons_padding"
             android:paddingStart="@dimen/buttons_padding"

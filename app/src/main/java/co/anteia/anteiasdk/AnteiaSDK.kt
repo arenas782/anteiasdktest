@@ -3,6 +3,7 @@ package co.anteia.anteiasdk
 import android.content.Context
 import android.content.Intent
 import android.provider.AlarmClock.EXTRA_MESSAGE
+import co.anteia.anteiasdk.data.api.DataProviderSingleton
 import co.anteia.anteiasdk.utils.DeviceInfo
 
 
@@ -13,28 +14,18 @@ class AnteiaSDK {
 
 
     lateinit var intent: Intent
-    lateinit var context: Context
+
     lateinit var deviceInfo: DeviceInfo
+    private val dataProvider = DataProviderSingleton.instance
 
-
-    public fun AnteiaSDK(context: Context) {
-
-        this.context = context
-
+    fun setupKeys(code : String, projectId : String){
+        dataProvider.code = code
+        dataProvider.projectId = projectId
 
     }
-
-
-    fun launchSDK() {
-
-
-        intent = Intent(context, AnteiaSDKMainActivity::class.java).apply {
-            putExtra(EXTRA_MESSAGE, "hola")
-
-
-        }
-
-        context.startActivity(intent)
+    fun setupUser(userName: String, apikey: String){
+        dataProvider.userName = userName
+        dataProvider.apiKey = apikey
     }
 
 }

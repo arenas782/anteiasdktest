@@ -6,7 +6,7 @@
         android:background="@color/white"
         android:padding="@dimen/outter_layout_padding"
         android:layout_height="match_parent"
-        tools:context=".ui.DataEntryFragment">
+        tools:context=".ui.dataentry.DataEntryFragment">
 
         <TextView
             android:id="@+id/input_data_message_tv"
@@ -98,7 +98,7 @@
         </LinearLayout>
         <Button
             android:layout_centerHorizontal="true"
-            android:text="@string/confirm"
+            android:text="@string/_continue"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,13 +1,10 @@
 package co.anteia.anteiasdk.viewModel
 
-import android.util.Patterns
 import androidx.lifecycle.*
 import co.anteia.anteiasdk.data.api.ApiHelper
-import co.anteia.anteiasdk.provider.ApiSingleton
-import co.anteia.anteiasdk.provider.DataProviderSingleton
-import co.anteia.anteiasdk.utils.Resource
-import co.anteia.anteiasdk.data.dto.AddInitialInfoRequest
+import co.anteia.anteiasdk.data.api.DataProviderSingleton
 import co.anteia.anteiasdk.data.dto.AddPasswordRequest
+import co.anteia.anteiasdk.utils.Resource
 import kotlinx.coroutines.Dispatchers
 
 /*
@@ -20,14 +17,13 @@ class CreatePasswordViewModel (private val apiHelper: ApiHelper): ViewModel() {
 
     val errorPassword = MutableLiveData("")
     val errorPasswordConfirm = MutableLiveData("")
-    val api = ApiSingleton.instance
     val data = DataProviderSingleton.instance
     private var passwordsMatch : Boolean = false
 
 
 
     private fun isPasswordValid(it: String): Boolean {
-        val regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%!\\-_?&])(?=\\S+\$).{8,}".toRegex()
+        val regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@.*#\$%!\\-_?&])(?=\\S+\$).{8,}".toRegex()
         return it.matches(regex = regex)
     }
     private fun passwordsMatches(pass: String,passConfirm: String): Boolean {

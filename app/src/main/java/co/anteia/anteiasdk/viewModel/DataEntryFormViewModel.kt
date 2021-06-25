@@ -3,8 +3,7 @@ package co.anteia.anteiasdk.viewModel
 import android.util.Patterns
 import androidx.lifecycle.*
 import co.anteia.anteiasdk.data.api.ApiHelper
-import co.anteia.anteiasdk.provider.ApiSingleton
-import co.anteia.anteiasdk.provider.DataProviderSingleton
+import co.anteia.anteiasdk.data.api.DataProviderSingleton
 import co.anteia.anteiasdk.utils.Resource
 import co.anteia.anteiasdk.data.dto.AddInitialInfoRequest
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +21,6 @@ class DataEntryFormViewModel (private val apiHelper: ApiHelper): ViewModel() {
     val errorlname = MutableLiveData("")
     val errorPhoneNumber = MutableLiveData("")
     val errorDni = MutableLiveData("")
-    val api = ApiSingleton.instance
     val data = DataProviderSingleton.instance
 
 
@@ -57,11 +55,9 @@ class DataEntryFormViewModel (private val apiHelper: ApiHelper): ViewModel() {
             emit(Resource.success(data = apiHelper.addInitialInformation(body = body,token = data.token!!)))
 
         } catch (exception: Exception) {
-            emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
+            emit(Resource.error(data = null, message = exception.toString()))
         }
     }
-
-
 
     val valid = MediatorLiveData<Boolean>().apply {
 

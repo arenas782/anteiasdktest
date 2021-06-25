@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import co.anteia.anteiasdk.data.api.ApiHelper
+import co.anteia.anteiasdk.data.api.DataProviderSingleton
 import co.anteia.anteiasdk.data.dto.SendEmailRequest
-import co.anteia.anteiasdk.provider.DataProviderSingleton
 import co.anteia.anteiasdk.utils.Resource
 import kotlinx.coroutines.Dispatchers
 

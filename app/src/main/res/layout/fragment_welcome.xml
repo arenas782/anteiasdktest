@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:padding="16dp"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@drawable/gradient_background"
         tools:context=".ui.WelcomeFragment">
 
         <ImageButton
@@ -15,7 +15,6 @@
             android:background="@color/white"
             android:scaleType="centerCrop"
             android:layout_margin="16dp"
-            android:visibility="invisible"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_height="30dp"/>

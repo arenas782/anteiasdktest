@@ -3,8 +3,8 @@ package co.anteia.anteiasdk.viewModel
 import android.util.Log
 import androidx.lifecycle.*
 import co.anteia.anteiasdk.data.api.ApiHelper
+import co.anteia.anteiasdk.data.api.DataProviderSingleton
 import co.anteia.anteiasdk.data.dto.ModifyPhoneRequest
-import co.anteia.anteiasdk.provider.DataProviderSingleton
 import co.anteia.anteiasdk.utils.Resource
 import kotlinx.coroutines.Dispatchers
 

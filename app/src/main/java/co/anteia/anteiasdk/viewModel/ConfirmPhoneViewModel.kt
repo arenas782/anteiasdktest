@@ -1,23 +1,16 @@
 package co.anteia.anteiasdk.viewModel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import androidx.lifecycle.viewModelScope
 import co.anteia.anteiasdk.data.api.ApiHelper
+import co.anteia.anteiasdk.data.api.DataProviderSingleton
 import co.anteia.anteiasdk.data.dto.ConfirmOtpRequest
 import co.anteia.anteiasdk.data.dto.OtpRequest
-import co.anteia.anteiasdk.data.dto.SendEmailRequest
-import co.anteia.anteiasdk.provider.ApiSingleton
-import co.anteia.anteiasdk.provider.DataProviderSingleton
 import co.anteia.anteiasdk.utils.Resource
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
 
 class ConfirmPhoneViewModel (private val apiHelper: ApiHelper): ViewModel() {
-    val api = ApiSingleton.instance
     val data = DataProviderSingleton.instance
     val code = MutableLiveData("")
 
